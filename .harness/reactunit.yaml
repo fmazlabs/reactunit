@@ -37,6 +37,20 @@ pipeline:
                     command: |-
                       yarn install
                       yarn build 
+                  description: Yarn Install and Build
+              - step:
+                  type: Run
+                  name: Test Yarn
+                  identifier: Test_Yarn
+                  spec:
+                    shell: Sh
+                    command: yarn test
+                    reports:
+                      type: JUnit
+                      spec:
+                        paths:
+                          - "**/*.xml"
+                  description: Yarn Test
           platform:
             os: Linux
             arch: Amd64
