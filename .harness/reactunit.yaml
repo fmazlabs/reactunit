@@ -40,6 +40,19 @@ pipeline:
                   description: Yarn Install and Build
               - step:
                   type: Run
+                  name: Yarn Add
+                  identifier: Yarn_Add
+                  spec:
+                    shell: Sh
+                    command: |-
+                      import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+                      yarn create react-app my-app
+                      yarn add enzyme enzyme-adapter-react-16 --dev
+                      yarn add react-test-renderer --dev
+                      yarn add bootstrap
+                  description: Yarn Add
+              - step:
+                  type: Run
                   name: Test Yarn
                   identifier: Test_Yarn
                   spec:
